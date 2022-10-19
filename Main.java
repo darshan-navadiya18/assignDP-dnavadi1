@@ -7,12 +7,15 @@ public class Main {
 //        }catch (Exception e){
 //
 //        }
-        MeatProductMenu pm = new MeatProductMenu();
+
+//        MeatProductMenu pm = new MeatProductMenu();
         try{
-            pm.showMenu();
+            Buyer buyer = new Buyer(new ProduceProductMenu());
+            buyer.showMenu();
+
 
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 }
