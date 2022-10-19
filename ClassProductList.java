@@ -8,7 +8,10 @@ public class ClassProductList extends ArrayList {
 	private Product[] product;
 
 	public void accept(NodeVisitor visitor) {
-
+		for (Product product:product
+			 ) {
+			visitor.visitProduct(product);
+		}
 	}
 
 }
