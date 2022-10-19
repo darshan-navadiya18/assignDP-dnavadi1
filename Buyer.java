@@ -1,3 +1,4 @@
+import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.util.Objects;
 
 public class Buyer extends Person {
@@ -7,17 +8,8 @@ public class Buyer extends Person {
 	}
 
 	public void showMenu() {
-		MeatProductMenu meatProductMenu = new MeatProductMenu();
-		ProduceProductMenu productMenu = new ProduceProductMenu();
-		String[] theProductMenuArr = theProductMenu.toString().split("@");
-		String[] meatProductMenuArr = meatProductMenu.toString().split("@");
+			theProductMenu.showMenu();
 
-		if (theProductMenuArr[0].equals(meatProductMenuArr[0]) ){
-			meatProductMenu.showMenu();
-
-		} else{
-			productMenu.showMenu();
-		}
 
 	}
 

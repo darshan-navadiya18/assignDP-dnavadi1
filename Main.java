@@ -10,7 +10,7 @@ public class Main {
 
 //        MeatProductMenu pm = new MeatProductMenu();
         try{
-            Buyer buyer = new Buyer(new ProduceProductMenu());
+            Buyer buyer = new Buyer(new MeatProductMenu());
             buyer.showMenu();
 
 
