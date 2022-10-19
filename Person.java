@@ -2,7 +2,9 @@
 public abstract class Person {
 
 	private ProductMenu theProductMenu;
-
+	protected Person(ProductMenu productMenu){
+		this.theProductMenu = productMenu;
+	}
 	public abstract void showMenu();
 
 

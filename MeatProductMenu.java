@@ -1,9 +1,9 @@
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 
-public class ProduceProductMenu extends ProductMenu {
+public class MeatProductMenu extends ProductMenu {
 
 	public void showMenu() {
 		File file = new File(
@@ -18,7 +18,7 @@ public class ProduceProductMenu extends ProductMenu {
 			while (sc.hasNextLine()){
 				st = sc.nextLine();
 				String[] dict = st.split(":");
-				if(dict[0].equals("Produce")){
+				if(dict[0].equals("Meat")){
 					System.out.println(dict[1]);
 				}
 
@@ -40,12 +40,12 @@ public class ProduceProductMenu extends ProductMenu {
 
 	}
 
-
-	public void showLabels() {
+	public void showViewButton() {
 
 	}
 
-	public void showViewButton() {
+
+	public void showLabels() {
 
 	}
 
