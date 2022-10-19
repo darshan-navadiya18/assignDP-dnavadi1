@@ -14,4 +14,8 @@ public class ClassProductList extends ArrayList {
 		}
 	}
 
+	@Override
+	public ListIterator createIterator(ListIterator iterator) {
+		return new ProductIterator();
+	}
 }
