@@ -13,7 +13,11 @@ public class Facade {
 	private Person thePerson;
 
 
-	public boolean login() {return false;	}
+	public boolean login() {
+		Login login = new Login();
+		login.login();
+		return false;
+	}
 
 
 	public void addTrading() {

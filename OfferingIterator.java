@@ -1,23 +1,32 @@
+import java.util.List;
+
 public class OfferingIterator implements ListIterator {
 
 	private OfferingList offeringList;
+	private List<Offering> offerings;
+	private int position=0;
 
-	public OfferingIterator(){}
+	public OfferingIterator(List<Offering> offerings){
+		this.offerings = offerings;
+	}
 
 
 	@Override
 	public boolean hasNext() {
-		return false;
+		return position < offerings.size() && offerings.get(position) != null;
+
 	}
 
 	@Override
 	public Offering Next() {
-		return null;
+		Offering offering= offerings.get(position);
+		position += 1;
+		return offering;
 	}
 
 	@Override
 	public void MoveToHead() {
-
+		position=0;
 	}
 
 	@Override
