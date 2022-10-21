@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-//        Facade facade = new Facade();
-//        facade.login();
-//        Login login = new Login();
+        Facade facade = new Facade();
+        facade.login();
+        Login login = new Login();
 //        login.getCredentials();
 
 //        ClassProductList classProductList = new ClassProductList();

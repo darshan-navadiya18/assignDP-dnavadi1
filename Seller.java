@@ -1,18 +1,25 @@
 
 public class Seller extends Person {
+	private int productCategory;
 
-
-	Seller(ProductMenu productMenu) {
-		super(productMenu);
+	Seller(int productCategory) {
+		this.productCategory = productCategory;
 	}
 
 	public void showMenu() {
-
+		theProductMenu.showMenu();
 	}
 
 
 	public ProductMenu CreateProductMenu() {
-		return null;
+		if(productCategory == 1){
+			this.theProductMenu = new MeatProductMenu();
+			return this.theProductMenu;
+		} else{
+			this.theProductMenu = new ProduceProductMenu();
+			return this.theProductMenu;
+
+		}
 	}
 
 }

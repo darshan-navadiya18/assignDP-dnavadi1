@@ -2,9 +2,10 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.util.Objects;
 
 public class Buyer extends Person {
+	private int productCategory;
 
-	Buyer(ProductMenu productMenu) {
-		super(productMenu);
+	Buyer(int productCategory) {
+		this.productCategory = productCategory;
 	}
 
 	public void showMenu() {
@@ -16,7 +17,14 @@ public class Buyer extends Person {
 
 
 	public ProductMenu CreateProductMenu() {
-		return null;
+		if(productCategory == 1){
+			this.theProductMenu = new MeatProductMenu();
+			return this.theProductMenu;
+		} else{
+			this.theProductMenu = new ProduceProductMenu();
+			return this.theProductMenu;
+
+		}
 	}
 
 }

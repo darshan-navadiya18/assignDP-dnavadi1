@@ -3,8 +3,8 @@ public abstract class Person {
 
 	protected ProductMenu theProductMenu;
 	//TODO: make theProductMenu private and add a Getter method.
-	protected Person(ProductMenu productMenu){
-		this.theProductMenu = productMenu;
+	protected Person(){
+
 	}
 	public abstract void showMenu();
 

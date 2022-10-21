@@ -7,6 +7,12 @@ import java.util.Scanner;
 public class Login {
     private String username="";
     private String password="";
+
+    public int getUserType() {
+        return userType;
+    }
+
+    private int userType=0;
     HashMap<String, String> buyers = new HashMap<>();
     HashMap<String, String> sellers = new HashMap<>();
 
@@ -57,6 +63,7 @@ public class Login {
         if(buyers.containsKey(username)){
             if(password.equals(buyers.get(username))){
                 System.out.println("Welcome! "+ username + " You are a Buyer");
+                userType=0;
                 return true;
             }else{
                 System.out.println("Invalid Credentials for this Buyer");
@@ -65,6 +72,8 @@ public class Login {
         } else if (sellers.containsKey(username)){
             if(password.equals(sellers.get(username))){
                 System.out.println("Welcome! "+ username + " You are a Seller");
+                userType=1;
+
                 return true;
             }else{
                 System.out.println("Invalid Credentials for this Seller");
