@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Facade {
@@ -9,8 +14,13 @@ public class Facade {
 	private int nProductCategory;
 
 
-	private ClassProductList theProductList;
+//	private ClassProductList theProductList;
 
+	public List<Product> getTheProductList() {
+		return theProductList;
+	}
+
+	private List<Product> theProductList = new ArrayList<>();
 
 	private Person thePerson;
 
@@ -59,14 +69,6 @@ public class Facade {
 			Buyer buyer = new Buyer(nProductCategory);
 			buyer.CreateProductMenu();
 			buyer.showMenu();
-//			if (choice == 1){
-//				Buyer buyer = new Buyer(new MeatProductMenu(),);
-//				buyer.showMenu();
-//			} else if (choice ==2){
-//				Buyer buyer = new Buyer(new ProduceProductMenu());
-//			}else{
-//				System.out.println("Invalid choice!! try again");
-//			}
 
 		}else{
 			System.out.println("What do you want to buy? \n 1. Meat \n 2. Produce");
@@ -75,20 +77,32 @@ public class Facade {
 			Seller seller = new Seller(nProductCategory);
 			seller.CreateProductMenu();
 			seller.showMenu();
-
-//			if (choice == 1){
-//				Seller seller = new Seller(new MeatProductMenu());
-//			} else if (choice ==2){
-//				Seller seller = new Seller(new ProduceProductMenu());
-//			}else{
-//				System.out.println("Invalid choice!! try again");
-//			}
+			createProductList();
+			SelectProduct();
 		}
 	}
 
 	public void createProductList() {
+		File file = new File(
+				"textFiles/ProductInfo.txt");
 
-	}
+		try {
+			BufferedReader br
+					= new BufferedReader(new FileReader(file));
+			Scanner sc = new Scanner(file);
+			String st;
+
+			while (sc.hasNextLine()){
+				st = sc.nextLine();
+				String[] dict = st.split(":");
+				theProductList.add(new Product(dict[1], dict[0]));
+
+			}
+
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}	}
 
 
 	public void attachProductToUser() {
@@ -96,6 +110,18 @@ public class Facade {
 	}
 
 	public Product SelectProduct() {
+		System.out.println("Select product: ");
+		String p = sc.nextLine();
+//		System.out.println(p);
+		for (Product product:
+			 theProductList) {
+			if(product.getName().toLowerCase().equals(p)){
+				theSelectedProduct = product;
+				System.out.println("you selected:  "+theSelectedProduct.getName());
+				return product;
+			}
+		}
+
 		return null;
 	}
 

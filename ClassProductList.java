@@ -10,34 +10,11 @@ public class ClassProductList extends ArrayList {
 	private ProductIterator productIterator;
 
 	private ReminderVisitor reminderVisitor;
-
+	Facade f = new Facade();
 	private List<Product> products;
 
 	public ClassProductList() {
-		products = new ArrayList<>();
-		File file = new File(
-				"textFiles/ProductInfo.txt");
-
-		try {
-			BufferedReader br
-					= new BufferedReader(new FileReader(file));
-			Scanner sc = new Scanner(file);
-			String st;
-
-			while (sc.hasNextLine()){
-				st = sc.nextLine();
-				String[] dict = st.split(":");
-				products.add(new Product(dict[1], dict[0]));
-//				if(dict[0].equals("Produce")){
-//					System.out.println(dict[1]);
-//				}
-
-			}
-
-		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		products = f.getTheProductList();
 	}
 
 	public void accept(NodeVisitor visitor) {
